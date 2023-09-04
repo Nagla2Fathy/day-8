@@ -3,15 +3,15 @@
     <!-- image -->
      <div class="col">
           <img
-            src="{{selectedproduct?.image }}"
+          src=  "{{ imagePath + selectedproduct.poster_path }}"
             class="card-img-top"
             alt="..." style="width: 250px;"
           />
       </div>
            <!-- title and description -->
       <div class="col" style="margin: auto;">
-          <h3>{{ selectedproduct?.title }}</h3>
-          <p>{{ selectedproduct?.description }}</p>
+          <h3>{{ selectedproduct?.name }}</h3>
+          <p>{{ selectedproduct?.overview }}</p>
       </div>
   </div>
 </div>

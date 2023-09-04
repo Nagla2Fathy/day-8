@@ -1,25 +1,46 @@
+<div class="row mt-5 ">
+  <div class="col-lg-12">
+    <button
+      class="btn btn-outline-success my-2 my-sm-0 float-end"
+      (click)="changeLanguage()"
+    >
+      {{ language }}
+    </button>
+  </div>
+</div>
+<div class="row mt-5 w-75">
+  <input type="text" class="form-control" [(ngModel)]="setSearchValue" />
+</div>
 
 <div class="row mt-5">
   <div class="card  col-lg-4 mx-6 "
-  *ngFor="let product of Allproducts "
+  *ngFor="let product of allProducts  "
   style="width: 250px;">
   <a  [routerLink]="['/productdetails',product.id]" >
     <img
-    src= "{{ product.image}} "
+    src=  "{{ imagePath + product.poster_path }}"
 class="card-img-top" alt="...">
   </a>
 
     <div class="card-body">
-      <h5 class="card-title" > {{product.title}}</h5>
-      <p class="card-text" *ngIf="product.showDetails">
-        {{product.description}}</p>
+      <h5 class="card-title" > {{product.name}}</h5>
+      <p class="card-text" *ngIf="product.overview">
+        {{product.overview}}</p>
         <div class="row">
         <button class="btn btn-primary">Add to card</button>
 
       <button class="btn btn-success" (click)="toggleDescripion(product.id)">
-        {{ product.showDetails? "Hide" : "Show" }}Details
+        {{ product.overview? "Hide" : "Show" }}Details
 
       </button>
         </div>
         </div>
+      </div>
+      <div class="row ">
+        <mat-paginator [length]= "totalMovies"
+              [pageSize]="pageSize"
+              aria-label=" select page "
+              (page)="changePage($event)"
+             >
+</mat-paginator>
       </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TvService } from '../tv.service';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +9,13 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   logo: string = 'amazon';
   headerLinks: string[] = ['Home', 'Products',  'About', 'contact us'];
-  language: string = 'en-Us';
+
   isLogin:boolean=true;
   //'ar-SA'
-  constructor() {}
-
-  changeLanguage() {
-    this.language = this.language == 'en-Us' ? 'ar-SA' : 'en-Us';
+  constructor(private productserviece :TvService) {
+    this.productserviece.changeLanguage();
   }
+
+
 
 }
